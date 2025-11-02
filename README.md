@@ -8,6 +8,12 @@
 - Replace images in documents (`replaceImages`)
 - Export to PDF using LibreOffice (`exportPDF`)
 
+## Installation
+
+```bash
+npm install officify
+```
+
 ---
 
 **Note:** Officify requires LibreOffice to be installed on your system for PDF export. Make sure `soffice` is available in your PATH.
