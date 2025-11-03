@@ -1,6 +1,7 @@
 # Officify
 
-**Officify** is a Node.js package for manipulating OpenDocument files (ODT, ODS, ODP) and exporting them as PDFs. With Officify, you can replace placeholders, insert images, and convert documents to PDF programmatically.
+**Officify** is a Node.js package that lets you modify Office documents in the OpenDocument Format (ODT, ODS, ODP).
+With Officify, you can automatically replace text placeholders, replace images, and export your documents as PDFs.
 
 ## Features
 
