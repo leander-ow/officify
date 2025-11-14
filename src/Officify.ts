@@ -9,13 +9,9 @@ import { escapeRegExp } from "./utils.js";
 import type { PlaceholderMap, ImageMap, OfficifyOptions } from "./types.js";
 import { resolveSofficePath } from "./sofficeResolver.js";
 
-function guessExtensionFromManifest(zip: JSZip): string | undefined {
-  const manifestFile = zip.file("META-INF/manifest.xml");
-  if (!manifestFile) return undefined;
-  return undefined;
-}
-
-async function guessExtensionAsync(zip: JSZip): Promise<string | undefined> {
+async function guessExtensionFromManifest(
+  zip: JSZip
+): Promise<string | undefined> {
   const manifestFile = zip.file("META-INF/manifest.xml");
   if (!manifestFile) return undefined;
   try {
@@ -106,7 +102,7 @@ export class Officify {
     let ext = this.options.inputExtensionHint;
     if (ext && !ext.startsWith(".")) ext = "." + ext;
     if (!ext) {
-      const guessed = await guessExtensionAsync(this.zip);
+      const guessed = await guessExtensionFromManifest(this.zip);
       if (guessed) ext = guessed;
     }
     if (!ext) ext = ".odt";
