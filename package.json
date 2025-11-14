@@ -1,6 +1,6 @@
 {
   "name": "officify",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Replace placeholders in office files",
   "type": "module",
   "main": "dist/index.js",
