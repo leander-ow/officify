@@ -95,7 +95,7 @@ export class Officify {
    * 2. manifest mime-type inside the archive
    * 3. default to .odt
    */
-  async exportPDF(): Promise<Buffer> {
+  async exportPDF(pages?: string): Promise<Buffer> {
     this.ensureLoaded();
     const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "officify-"));
     const randomPart = crypto.randomBytes(8).toString("hex");
@@ -121,7 +121,9 @@ export class Officify {
         const soffice = spawn(this.sofficePath, [
           "--headless",
           "--convert-to",
-          "pdf",
+          pages
+            ? `pdf:writer_pdf_Export:{"PageRange":{"type":"string","value":"${pages}"}}`
+            : "pdf",
           "--outdir",
           tmpDir,
           inputFile,
